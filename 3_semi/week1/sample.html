@@ -4,25 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>要素の追加</title>
+    <title>要素の削除</title>
   </head>
   <body>
-    <!-- ① before -->
     <div class="cards-container">
-      <!-- ② prepend -->
       <div class="card">こんにちは</div>
-      <!-- ③ append -->
+      <div class="card">こんばんは</div>
     </div>
-    <!-- ④ after -->
 
-    <script type="text/javascript">
+    <script>
+      // 削除先の親要素を取得
       const cardsContainer = document.getElementById("cards-container")
 
-      const card = document.createElement("div")
-      card.textContent = "おはよう"
-      card.className = "card"
+      // 削除したい要素を取得
+      const card = cardsContainer.children[1] // childrenを使うと子要素を配列（のようなもの）として取得できる
 
-      cardsContainer.prepend(card)
+      // cardsContainerから子要素を削除
+      cardsContainer.removeChild(card)
     </script>
   </body>
 </html>
