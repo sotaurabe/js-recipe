@@ -1,10 +1,10 @@
 const fizzBuzz = function(number) {
-  for (let i = 0; 1 <= number; i++) {
-    if (number % 5 === 0 && number % 3 === 0) {
+  for (let i = 1; i <= number; i++) {
+    if (i % 5 === 0 && i % 3 === 0) {
       console.log("FizzBuzz")
-    } else if (number % 5 === 0) {
+    } else if (i % 5 === 0) {
       console.log("Buzz")
-    } else if (number % 3 === 0) {
+    } else if (i % 3 === 0) {
       console.log("Fizz")
     } else {
       console.log(i)
@@ -12,4 +12,4 @@ const fizzBuzz = function(number) {
   }
 }
 
-fizzBuzz(15)
+fizzBuzz(100)

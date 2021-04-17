@@ -2,10 +2,10 @@ const figure = document.getElementById("figure")
 
 figure.onclick = function() {
   if ((figure.className = "square")) {
-    figure.className = "rounded"
+    figure.classList.replace("square", "rounded")
   } else if ((figure.className = "rounded")) {
-    figure.className = "triangle"
+    figure.classList.replace("rounded", "triangle")
   } else {
-    figure.className = "square"
+    figure.classList.replace("triangle", "square")
   }
 }
