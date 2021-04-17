@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>javascript_no05</title>
+    <script language="javascript">
+      //データ取込み
+      function dt_in() {
+        dt1 = document.keisan.dt_11.value
+        dt1 = parseInt(dt1)
+        dt2 = document.keisan.dt_12.value
+        dt2 = parseInt(dt2)
+      }
+
+      //データ書出し
+      function dt_out() {
+        document.keisan.dt_13.value = dt3
+      }
+
+      //足し算
+      function tasizan() {
+        dt_in()
+        dt3 = dt1 + dt2
+        dt_out()
+      }
+
+      //引き算
+      function hikizan() {
+        dt_in()
+        dt3 = dt1 - dt2
+        dt_out()
+      }
+      //掛け算
+      function kakezan() {
+        dt_in()
+        dt3 = dt1 * dt2
+        dt_out()
+      }
+      //割り算
+      function warizan() {
+        dt_in()
+        dt3 = dt1 / dt2
+        dt_out()
+      }
+      //余り算
+      function amarizan() {
+        dt_in()
+        dt3 = dt1 % dt2
+        dt_out()
+      }
+      //
+    </script>
+  </head>
+  <body>
+    <form name="keisan">
+      <table border="0" width="300">
+        <tr>
+          <td></td>
+          <td>
+            <input type="text" name="dt_11" value="" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!--演算ボタン-->
+            <input type="button" value="＋" onClick="tasizan()" />
+            <input type="button" value="－" onClick="hikizan()" />
+            <input type="button" value="＊" onClick="kakezan()" />
+            <input type="button" value="／" onClick="warizan()" />
+            <input type="button" value="％" onClick="amarizan()" />
+          </td>
+          <td>
+            <input type="text" name="dt_12" value="" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="text" name="dt_13" value="" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <!--  -->
+  </body>
+</html>
