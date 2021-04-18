@@ -1,11 +1,11 @@
 const figure = document.getElementById("figure")
 
 figure.onclick = function() {
-  if ((figure.className = "square")) {
-    figure.classList.replace("square", "rounded")
-  } else if ((figure.className = "rounded")) {
-    figure.classList.replace("rounded", "triangle")
+  if (figure.classList.contains("square")) {
+    figure.className = "rounded transition"
+  } else if (figure.classList.contains("rounded")) {
+    figure.className = "triangle transition"
   } else {
-    figure.classList.replace("triangle", "square")
+    figure.className = "square transition"
   }
 }
