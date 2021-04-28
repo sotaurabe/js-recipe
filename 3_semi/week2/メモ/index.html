@@ -20,18 +20,10 @@
       const addButton = document.getElementById("add-button")
       const memoContainer = document.getElementById("memo-container")
 
-      addButton.onclick = function() {
-        const text = memoInput.value
-        if (text !== "") {
-          makeCard(text)
-
-          memoInput.value = ""
-        }
-      }
-
-      const makeCard = function(text) {
+      const makeCard = function(text, id) {
         const card = document.createElement("div")
         card.className = "card"
+        card.id = id
         card.textContent = text
         memoContainer.append(card)
 
@@ -41,7 +33,42 @@
         card.append(deleteButton)
 
         deleteButton.onclick = function() {
-          card.remove()
+          for (let i = 0; i < memos.length; i++) {
+            if (card.id === memos[i].id) {
+              memos.splice(i, 1)
+            }
+            localStorage.memos = JSON.stringify(memos)
+            card.remove()
+          }
+        }
+      }
+
+      let memos = []
+
+      if (localStorage.memos) {
+        memos = JSON.parse(localStorage.memos)
+        for (let i = 0; i < memos.length; i++) {
+          makeCard(memos[i].text, memos[i].id)
+        }
+      }
+      addButton.onclick = function() {
+        const id = Math.random().toString(16)
+        const text = memoInput.value
+        const obj = { id, text }
+
+        if (text !== "") {
+          memoContainer.innerHTML = ""
+
+          memos.push(obj)
+          localStorage.memos = JSON.stringify(memos)
+
+          for (let i = 0; i < memos.length; i++) {
+            makeCard(memos[i].text, memos[i].id)
+          }
+
+          memos.sort()
+          console.log(memos)
+          memoInput.value = ""
         }
       }
     </script>
