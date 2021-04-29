@@ -1,88 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>javascript_no05</title>
-    <script language="javascript">
-      //データ取込み
-      function dt_in() {
-        dt1 = document.keisan.dt_11.value
-        dt1 = parseInt(dt1)
-        dt2 = document.keisan.dt_12.value
-        dt2 = parseInt(dt2)
-      }
-
-      //データ書出し
-      function dt_out() {
-        document.keisan.dt_13.value = dt3
-      }
-
-      //足し算
-      function tasizan() {
-        dt_in()
-        dt3 = dt1 + dt2
-        dt_out()
-      }
-
-      //引き算
-      function hikizan() {
-        dt_in()
-        dt3 = dt1 - dt2
-        dt_out()
-      }
-      //掛け算
-      function kakezan() {
-        dt_in()
-        dt3 = dt1 * dt2
-        dt_out()
-      }
-      //割り算
-      function warizan() {
-        dt_in()
-        dt3 = dt1 / dt2
-        dt_out()
-      }
-      //余り算
-      function amarizan() {
-        dt_in()
-        dt3 = dt1 % dt2
-        dt_out()
-      }
-      //
-    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
   <body>
-    <form name="keisan">
-      <table border="0" width="300">
-        <tr>
-          <td></td>
-          <td>
-            <input type="text" name="dt_11" value="" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <!--演算ボタン-->
-            <input type="button" value="＋" onClick="tasizan()" />
-            <input type="button" value="－" onClick="hikizan()" />
-            <input type="button" value="＊" onClick="kakezan()" />
-            <input type="button" value="／" onClick="warizan()" />
-            <input type="button" value="％" onClick="amarizan()" />
-          </td>
-          <td>
-            <input type="text" name="dt_12" value="" />
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2"><hr /></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <input type="text" name="dt_13" value="" />
-          </td>
-        </tr>
-      </table>
-    </form>
-    <!--  -->
+    <div id="display"></div>
+    <input type="button" value="C" id="button-C" />
+    <br />
+    <input type="button" value="7" id="button-7" onclick="up(7)" />
+    <input type="button" value="8" id="button-8" onclick="up(8)" />
+    <input type="button" value="9" id="button-9" onclick="up(9)" />
+    <input type="button" value="/" id="button-/" />
+    <br />
+    <input type="button" value="4" id="button-4" onclick="up(4)" />
+    <input type="button" value="5" id="button-5" onclick="up(5)" />
+    <input type="button" value="6" id="button-6" onclick="up(6)" />
+    <input type="button" value="*" id="button-*" />
+    <br />
+    <input type="button" value="1" id="button-1" onclick="up(1)" />
+    <input type="button" value="2" id="button-2" onclick="up(2)" />
+    <input type="button" value="3" id="button-3" onclick="up(3)" />
+    <input type="button" value="-" id="button--" />
+    <br />
+    <input type="button" value="0" id="button-0" onclick="up(0)" />
+    <input type="button" value="." id="button-." />
+    <input type="button" value="=" id="button-=" />
+    <input type="button" value="+" id="button-+" />
+
+    <script src="main.js"></script>
   </body>
 </html>
