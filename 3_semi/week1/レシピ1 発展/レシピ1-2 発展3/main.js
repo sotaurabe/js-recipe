@@ -40,11 +40,8 @@ function up(n) {
     let s = 10 ** (getPointLength(total) + 1)
     let f = n / s
     total = total + f
-    console.log(total)
     total = Math.round(total * s)
-    console.log(total)
     total = total / s
-    console.log(total)
     f = 0
     display.textContent = total
   } else {
