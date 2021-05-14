@@ -17,14 +17,27 @@
         <div class="list-header">買い物リスト</div>
         <div class="cards-container">
           <div class="card" v-for="todo in list">
-            <div class="text">
-              {{ todo }}
+            <input type="checkbox" v-model="todo.isDone" />
+            <div v-if="todo.isDone">
+              <div style="text-decoration: line-through;">
+                {{ todo.text }}
+              </div>
             </div>
-            <div class="delete"></div>
+
+            <div v-else>
+              <div class="text">
+                {{ todo.text }}
+              </div>
+            </div>
+            <div
+              class="delete"
+              v-for="(todo,index) in list"
+              v-on:click="deleteTodo(index)"
+            ></div>
           </div>
         </div>
         <input type="text" id="input-todo" v-model="inputTodo" />
-        <div id="input-button"></div>
+        <div id="input-button" v-on:click="addTodo">追加</div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -33,14 +46,29 @@
         el: "#app",
         data: {
           list: [
-            "ひき肉を300g買う",
-            "ホウレンソウを1束買う",
-            "ピーマンを2個買う",
+            {
+              text: "ひき肉を300g買う",
+              isDone: false,
+            },
+            {
+              text: "ホウレンソウを1束買う",
+              isDone: false,
+            },
+            {
+              text: "ピーマンを2個買う",
+              isDone: false,
+            },
           ],
           todo: "",
+          inputTodo: "",
         },
         methods: {
-          addTodo: function() {},
+          addTodo: function() {
+            this.list.push(this.inputTodo)
+          },
+          deleteTodo: function(index) {
+            this.list.splice(index, 1)
+          },
         },
       })
     </script>
