@@ -25,7 +25,7 @@
   <body>
     <div id="app">
       <div>
-        {{ count }}
+        {{ three }}
       </div>
       <button v-on:click="countUp">+1</button>
     </div>
@@ -35,6 +35,15 @@
         el: "#app",
         data: {
           count: 0,
+        },
+        computed: {
+          three: function() {
+            if (this.count % 3 === 0 && this.count !== 0) {
+              return this.count + "!!!!"
+            } else {
+              return this.count
+            }
+          },
         },
         methods: {
           countUp: function() {
